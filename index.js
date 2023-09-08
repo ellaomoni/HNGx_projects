@@ -23,8 +23,8 @@ app.get("/", (req, res) => {
     current_day: daysOfWeek[day],
     utc_time: time.toISOString(),
     track: "backend",
-    github_file_url: "",
-    github_report_url: " ",
+    github_file_url: "https://github.com/ellaomoni/HNGx_projects/blob/master/index.js",
+    github_report_url: " https://github.com/ellaomoni/HNGx_projects/blob/master ",
     status_code: 200,
   };
 
