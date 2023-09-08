@@ -5,7 +5,9 @@ const port = 3050;
 const http = require("http");
 const server = http.createServer(app);
 
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
+  const name = req.query.slack_name
+  const track_name = req.query.track
   const daysOfWeek = [
     "Sunday",
     "Monday",
@@ -19,12 +21,12 @@ app.get("/", (req, res) => {
   const day = time.getDay();
 
   const response = {
-    slack_name: "Ella Omoni",
+    slack_name: name,
     current_day: daysOfWeek[day],
-    utc_time: time.toISOString(),
-    track: "backend",
+    utc_time: time.toISOString().slice(0,-5) + "Z",
+    track: track_name,
     github_file_url: "https://github.com/ellaomoni/HNGx_projects/blob/master/index.js",
-    github_report_url: " https://github.com/ellaomoni/HNGx_projects/blob/master ",
+    github_repo_url: "https://github.com/ellaomoni/HNGx_projects/blob/master",
     status_code: 200,
   };
 
